@@ -1,0 +1,12 @@
+/.bundle
+
+/db/*.sqlite
+/db/*.sqlite-journal
+
+/log/*.log
+/tmp
+
+*~
+*.swp
+
+
