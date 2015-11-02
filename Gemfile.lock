@@ -118,6 +118,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.10.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -227,6 +229,7 @@ DEPENDENCIES
   jquery-ui-rails
   jquery.fileupload-rails
   neat
+  puma
   rails (= 4.1.8)
   redcarpet
   rspec-rails
