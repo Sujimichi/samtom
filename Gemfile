@@ -40,3 +40,27 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 
 gem 'haml-rails'
+
+#Stuff Jeremy added in
+#These three all provide style libraries
+gem 'bitters'
+gem 'bourbon'
+gem 'neat'
+
+#recarpet provides markdown support
+gem 'redcarpet'
+#gem 'bb-ruby'
+
+
+#This installs a set of gems in development and test environments, but not in production
+#most are to do with testing, except therubyracer which is a javascript environment
+group :development, :test do
+  gem 'therubyracer',  platforms: :ruby
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'erb2haml'
+  gem 'database_cleaner'
+end
+
