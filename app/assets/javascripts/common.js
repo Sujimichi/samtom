@@ -25,6 +25,8 @@ function page_ready(){
   $(on_load_hooks).each(function(i,func){func()});
   
   
+  make_angry()
+  
 };
 
 
@@ -53,5 +55,29 @@ function highlight_things(){
       $(this).removeClass("test");    //which removes the test css class
     })
   })
+};
+
+function make_angry(){
+  $('.come_here_ya_little_shit').on("mouseover",function(){
+    var width = $(window).width() * Math.random()
+    var height = $(window).height() * Math.random()
+    if( Math.random() > 0.1 ){ //to give a small chance that sometimes it won't move
+      $('.come_here_ya_little_shit').animate({top: height, left: width}, 500)
+      //I could have written the above line like: $(this).animate({top: height, left: width}, 500)
+    };
+  })
+  
+  $('.come_here_ya_little_shit').on("click", function(){
+    $(this).unbind("mouseover")    
+    $('.concrats').html("well done, you clicked it")
+    $('.come_here_ya_little_shit').remove()
+    setTimeout(function(){
+      $('.concrats').animate({height: 0},500).html("")
+    },4000)
+    return false;
+  })
+  
+  $('.come_here_ya_little_shit').mouseover()
+
 };
 
