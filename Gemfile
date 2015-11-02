@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
@@ -16,6 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery.fileupload-rails'
+gem 'jquery-turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -40,3 +44,27 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 
 gem 'haml-rails'
+
+#Stuff Jeremy added in
+#These three all provide style libraries
+gem 'bitters'
+gem 'bourbon'
+gem 'neat'
+
+#recarpet provides markdown support
+gem 'redcarpet'
+#gem 'bb-ruby'
+
+
+#This installs a set of gems in development and test environments, but not in production
+#most are to do with testing, except therubyracer which is a javascript environment
+group :development, :test do
+  gem 'therubyracer',  platforms: :ruby
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'erb2haml'
+  gem 'database_cleaner'
+end
+

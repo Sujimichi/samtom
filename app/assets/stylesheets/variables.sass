@@ -1,0 +1,116 @@
+//SASS Variables
+
+//The Main Pallet Colors
+$site_dark: #565657
+$site_white:#FAFAFA
+
+$site_high_tone: #E0E0E0
+$site_low_tone: #9fa2a7
+
+$stock_color: #0000FF
+$mod_color: #03610B
+
+
+
+$site_highlight: #F7E7B7
+$site_shadow: #575757
+
+
+$notification_alert: rgba(245, 92, 42, .8)
+$notification_notice: rgba(114, 166, 42, .8)
+
+//Core Site Components
+$color_html: $site_white
+$color_body: $site_low_tone
+
+$color_header: $site_dark
+$color_main_title: black
+
+$color_footer: $site_low_tone
+$font-color_footer: $site_high_tone
+
+$link_color: darken(#477DCA, 15)
+$link_color_hover: #83A1E1
+
+
+$font-color_heading: $site_dark
+$font-color_label: $site_dark
+
+$color_sub_header: $site_high_tone
+$color_widget:  $site_high_tone
+
+$main_border_color: $site_low_tone
+$color_on_hover: $site_low_tone
+
+
+
+
+
+
+//Error and Notice Colors
+$flash_notice_color: #B6D69A
+$flash_error_color:  #C97B7B
+$error_font_color: #cc1111
+$error_border_color: #ff8585
+$error_background_color: #ffebeb
+$notice_font_color: #666666
+$notice_border_color: #397D02
+$notice_background_color: #BCED91
+
+$content_gradient_background_color: $site_white
+$content_gradient_background_image: url(/images/gradient_2.png)
+
+$small_ajax_loader: url(/images/ajax_loader-link.gif)
+
+//Panel specific
+$color_panel_header: $site_dark
+$color_panel_border: $site_dark
+
+//Report Panels Specific Colors
+$color_report-fetching: #FFC0CB
+$color_report-fetching-hover: #C77180
+$color_report-open: #B7BCC9
+$color_report-open-hover: #C7CBD6
+
+.white_heading
+  :color $site_white
+  :text-shadow 0 0 4px black    
+  :opacity 0.6
+
+.ajax_loader
+  :margin-left  auto
+  :margin-right auto
+  :width 35px
+  :height 35px
+  :background
+    :image image-url('ajax-loader.gif')
+    :color transparent
+    :repeat no-repeat
+
+.small_ajax_loader
+  :margin-left  auto
+  :margin-right auto
+  :width 16px
+  :height 16px
+  :background
+    :image image-url('ajax-loader_small.gif')
+    :color transparent
+    :repeat no-repeat 
+    
+.modal_ajax_loader
+  :margin-left  auto
+  :margin-right auto
+  :width 128px
+  :height 128px
+  :background
+    :color transparent
+    :image image-url('modal_loader.gif')
+    :repeat no-repeat
+    
+.ui-autocomplete-loading
+  :background
+    :color white
+    :image image-url('ajax-loader_small.gif')
+    :repeat no-repeat
+    :position 98% 50%
+        
