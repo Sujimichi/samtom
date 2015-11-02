@@ -1,0 +1,244 @@
+//Utils - Mixins and styles used to extend other classes.
+@import variables.sass
+
+=clearfix
+  :overflow hidden
+  :overflow -moz-scrollbars-none
+  // This makes ie6 get layout
+  :display inline-block
+  // and this puts it back to block
+  &
+    :display block
+
+.clearfix
+  +clearfix
+
+.clear
+  :display block
+  :clear both
+  :height 0
+  :width 0
+
+//Helpers
+.left
+  :float left
+.right
+  :float right
+.with_margin
+  :margin-left 1em
+.with_small_margin
+  :margin-left 0.5em
+.with_right_margin
+  :margin-right 1em
+
+.with_padding
+  :padding-left 1em
+.with_small_padding
+  :padding-left 0.5em
+
+.pad-none
+  :padding 0em
+.mar-none
+  :margin 0em
+.small
+  :font-size 80%
+  :margin-top 0.0em
+
+.small_top
+  :margin-top -0.2em
+  :font-size 80%
+
+.small_lower
+  :margin-top 0.1em
+  :font-size 80%
+
+.very_small
+  :font-size 65%
+
+.inline
+  :display inline
+.hidden
+  :display none
+
+.center-text
+  :text-align center
+.centered
+  :text-align center
+.justify
+  :text-align justify
+
+.css_table
+  :display table-row
+  .label
+    :display table-cell
+    @extend .label
+    :vertical-align text-top
+  .value
+    :display table-cell
+    :padding-left 1em
+
+
+
+=dev_show($col: blue, $val: 45)
+  :background-color lighten($col, $val)
+
+//Transparency_mixins
+=transparent($trans: 70)
+  :filter alpha(opacity=$trans)
+  :opacity ($trans / 100 )
+
+//Gradient Mixins
+=gradient($start_color, $end_color)
+  /* for webkit, old firefox and IE browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from($start_color), to($end_color))
+  background: -moz-linear-gradient(top,  $start_color, $end_color)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start_color}', endColorstr='#{$end_color}',GradientType=0)
+
+  background: -webkit-linear-gradient(top,  $start_color, $end_color)
+  background: -o-linear-gradient(top,  $start_color, $end_color)
+  background: -ms-linear-gradient(top, $start_color, $end_color)
+  background: linear-gradient(to bottom, $start_color, $end_color)
+
+
+=gradient_h($start_color, $end_color)
+  /* for webkit, old firefox and IE browsers */
+  background: -webkit-gradient(linear, left top, right top, from($start_color), to($end_color))
+  background: -moz-linear-gradient(left,  $start_color, $end_color)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start_color}', endColorstr='#{$end_color}',GradientType=1 )
+
+  background: -webkit-linear-gradient(left,  $start_color, $end_color)
+  background: -o-linear-gradient(left,  $start_color, $end_color)
+  background: -ms-linear-gradient(left, $start_color, $end_color)
+  background: linear-gradient(to right, $start_color, $end_color)
+
+
+//Border Rounding Mixins
+=rounded($vals: 16px)
+  -webkit-border-radius: $vals
+  -moz-border-radius: $vals
+  border-radius: $vals
+
+
+=rounded_top($vals: 16px 16px 0px 0px)
+  +rounded($vals)
+=rounded_bottom($vals: 0px 0px 16px 16px)
+  +rounded($vals)
+=rounded_none
+  +rounded(0px 0px 0px 0px)
+
+.rounded_top
+  +rounded_top
+
+
+//CSS Shadows
+
+=cast_shadow($args)
+  -moz-box-shadow: $args
+  -webkit-box-shadow: $args
+  box-shadow: $args
+
+$shadow_vals: 0px 2px 30px 2px grey
+$alert_shadow_vals: 0px 3px 30px 5px black, 0px 3px 30px 5px $flash_error_color
+$notice_shadow_vals: 0px 3px 30px 5px black, 0px 3px 30px 5px $flash_notice_color
+$header_alert_shadow_vals: -35px 0px 30px 5px black, -35px 0px 30px 5px $flash_error_color
+$header_notice_shadow_vals: -35px 0px 30px 5px black, -35px 0px 30px 5px $flash_notice_color
+
+.default_shadow
+  +cast_shadow($shadow_vals)
+
+.alert_shadow
+  +cast_shadow($alert_shadow_vals)
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#000000')"
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#000000')
+
+
+$inner_shadow: inset 0px 0px 6px 2px black
+$inner_shadow_2: inset 0px 3px 10px $site_shadow
+
+  
+=rotate( $degrees )
+  -webkit-transform: rotate(#{$degrees}deg)
+  -moz-transform: rotate(#{$degrees}deg)
+  -ms-transform: rotate(#{$degrees}deg)
+  -o-transform: rotate(#{$degrees}deg)
+  transform: rotate(#{$degrees}deg)
+
+  filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})"
+  zoom: 1  
+
+.no_transition 
+  -webkit-transition none
+  -moz-transition none
+  -o-transition none
+  -ms-transition none
+  :transition none
+  
+.border_box
+  box-sizing: border-box
+    
+.glass-edge
+  +rounded(16px)
+  :background-color darken($site_high_tone, 10)
+  :border 30px solid rgba(186, 186, 186, .8)
+  -webkit-background-clip padding-box
+  :background-clip padding-box
+  :opacity 0.3
+
+=glass_edge($border-size, $rounding-size, $rgb_color: rgb(186, 186, 186), $edge_opacity: 0.8 )  
+  +rounded($rounding-size)
+  :background-color lighten($site_high_tone, 0)
+  :border $border-size solid rgba($rgb_color, $edge_opacity)
+  -webkit-background-clip padding-box
+  :background-clip padding-box
+  :opacity 0.9
+
+  
+  
+.flyin_container
+  :z-index 2200
+  :position absolute
+  :left -50em
+  :min-height 2em
+  @extend .glass-edge
+  +rounded(12px)
+  :border 14px solid rgba(186, 186, 186, .8)
+  :opacity 0
+  @include transition(all 1s $ease-out-expo)
+  .flyin-container_close_link
+    :position absolute
+    :top -0.9em
+    :right -0.9em
+    :font-size 120%
+    :width 1.2em
+    :height 1.2em
+    :line-height 1.2em
+    :cursor pointer
+    @extend .low_profile_button
+    :border-top none
+    +rounded(120px)
+
+.flyin_container_visible
+  :opacity 0.9
+  @include transition(all 0.5s $ease-out-expo)
+  :left 160px
+
+.low_profile_button
+  :border 1px solid $site_low_tone
+  :text-align center
+  :color darken($site_low_tone, 10)
+  :cursor pointer
+  :background $site_high_tone
+  @include transition(background 0.5s linear, color 0.5s linear)
+  &:hover
+    :color darken($site_low_tone, 15)
+    :background darken($site_high_tone, 5)
+    @include transition(background 0.1s linear, color 0.1s linear)
+  
+.selectable
+  @include transition(all 0.8s linear)
+  &:hover
+    :background-color darken($site_high_tone, 5)
+    @include transition(all 0.2s linear)  

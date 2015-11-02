@@ -1,1 +1,44 @@
+@import 'bourbon/bourbon'
+@import "base/base"
+@import variables.sass
+@import utils.sass
+@import grid960.sass
+
+html
+  :background-color $site_white
+  :margin 0
+  :padding 0
+  :width 100%
+  :height 100%
+  :background
+    :color $site_white
+    :image image-url('diagonals-small.png')
+    :repeat repeat-x repeat-y
+body
+  :padding 0
+  :margin 0
+  :font-family arial, "helvetica neue", helvetica, "lucida grande", sans-serif
+  //:font 1em Helvetica, Arial, sans-serif
+  :color #666
+  :min-width 960px
+  :position relative
+  :text-align left
+
 #foo
+
+.jeff_for_carlos_main
+  @extend .grid_12
+  :margin 
+    :top 4em
+    :bottom 2em
+  :font-size 200%
+  :text-align center
+  :padding 1px
+
+.sub_container
+  @extend .grid_2
+  
+  
+.test
+  :border 1px solid red  
+  :padding 0px

@@ -1,9 +1,19 @@
-#foo
-  %h1 
-    jeff <3 carlos
-  %h3
-    bar
-  %p
-    A mofo para G
-  %a{:href=>'https://google.com'}
-    Click for Googlz
+#welcome.grid960
+  
+  .jeff_for_carlos_main
+    %h1 
+      jeff <3 carlos
+      
+  .sub_container.push_3
+    %h3
+      bar
+  .sub_container
+    %p
+      A mofo para G
+  .sub_container
+    %a{:href=>'https://google.com'}
+      Click for Googlz
+  
+  .clear
+  .right
+    =link_to "click me fo", "", :class => "enable_highlight_link"
