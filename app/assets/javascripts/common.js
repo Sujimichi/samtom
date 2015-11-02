@@ -4,7 +4,7 @@ var on_load_hooks = [];
 
 function page_ready(){
 
-  //alert("find me and remove me!!")
+  alert("find me and remove me!!")
   //ok so this file can contain javascript and it will be loaded on every page of your site.
   //this "page_ready" method will be called once right after all the html has loaded on the page.
   //So use this method as the starting point for setting up the page or triggering things to happen automatically
