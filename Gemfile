@@ -67,7 +67,10 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'erb2haml'
   gem 'database_cleaner'
-
-  gem 'pg'
   gem 'sqlite3'
 end
+
+group :production do 
+  gem 'pg'
+end
+
